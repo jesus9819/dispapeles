@@ -11,13 +11,13 @@ import { FireabaeErrorService } from 'src/app/service/fireabae-error.service';
 })
 export class RegisterComponent implements OnInit {
   registrarUsuario: FormGroup;
-  loading:boolean=false;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private afAuth: AngularFireAuth,
     private router: Router,
-    private firebaseError:FireabaeErrorService
+    private firebaseError: FireabaeErrorService
   ) {
     this.registrarUsuario = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -38,21 +38,29 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.loading=true;
+    this.loading = true;
 
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.loading=false;
-        alert("Registro exitoso")
-        this.router.navigate(['/login'])
+        this.verificarCorreo();
+        // this.loading=false;
+        // alert("Registro exitoso")
+        // this.router.navigate(['/login'])
       })
       .catch((error) => {
-        this.loading=false;
+        this.loading = false;
         console.log(error);
         alert(this.firebaseError.codeError(error.code));
       });
     // console.log(email, password, repetirPassword);
   }
-
+  verificarCorreo() {
+    this.afAuth.currentUser
+      .then((user) => user?.sendEmailVerification())
+      .then(() => {
+        alert(' le enviamos un correo para Verificar user');
+        this.router.navigate(['/login']);
+      });
+  }
 }
