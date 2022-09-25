@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
 
-    <form >
+    <form [formGroup]="newUsuario">
       <div class="form-floating mb-3">
         <!-- <input type="email" class="form-control" formControlName="email"  placeholder="name@example.com"> -->
         <select class="form-control" formControlName="tipoId"  placeholder="Tipo Id">
-          <option *ngFor="let item of tipoId" value="{{item.tipoId}}">{{item.descripcion}}</option>
+          <option *ngFor="let item of tipoId" value="{{item.tipoId}}">{{item.tipoId}}</option>
         </select>
         <label for="floatingInput">Tipo id</label>
       </div>
