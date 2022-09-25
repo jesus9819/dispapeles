@@ -14,9 +14,12 @@ export class DataUserService {
   return this.http.get<any>(`${environment.url}/api/v1/person`);
   }
   deleteUsurarios(id:number){
-    return this.http.delete<any>(`${environment.url}/api/v1/person/${id}`)
+    return this.http.delete<any>(`${environment.url}/api/v1/person/${id}`);
   }
   getTipoId(){
     return this.http.get<any>(`${environment.url}/api/v1/tipoidentificacion`);
+  }
+  createUser(user:any){
+    return this.http.post<any>(`${environment.url}/api/v1/person/`,user);
   }
 }
