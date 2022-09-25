@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class NewUsuarioComponent implements OnInit {
   datuser:any;
   usuarios:any;
+  tipoId:any
   constructor(private afAuth: AngularFireAuth,  private router: Router,private userService:DataUserService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,14 @@ export class NewUsuarioComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     })
+this.getTipoid();
+  }
+  getTipoid(){
+    this.userService.getTipoId().subscribe(resp =>{
+      console.log("tipoid",resp);
+      this.tipoId=resp
 
+    })
   }
 
 }
