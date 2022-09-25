@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { FireabaeErrorService } from 'src/app/service/fireabae-error.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private afAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private firebaseError:FireabaeErrorService
   ) {
     this.loginUsuario=this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
 
     }).catch ((error)=>{
       this.loading=false
+      alert(this.firebaseError.codeError(error.code));
       console.log(error);
 
     })
