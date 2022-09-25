@@ -1,22 +1,42 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <form action="">
+
     <form >
       <div class="form-floating mb-3">
         <!-- <input type="email" class="form-control" formControlName="email"  placeholder="name@example.com"> -->
-        <select class="form-control" name="" id="">
-          <option *ngFor="let item of tipoId" value="{{item.tipoId}}">{{item.tipoId}}</option>
+        <select class="form-control" formControlName="tipoId"  placeholder="Tipo Id">
+          <option *ngFor="let item of tipoId" value="{{item.tipoId}}">{{item.descripcion}}</option>
         </select>
         <label for="floatingInput">Tipo id</label>
       </div>
-      <div class="form-floating">
-        <input type="tex" class="form-control" formControlName="password" placeholder="Password">
-        <label for="floatingPassword">Identificación</label>
+      <div class="form-floating mb-3" >
+        <input type="tex" class="form-control" formControlName="identificacion" placeholder="Password">
+        <label for="floatingIdentificacion">Identificación</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+        <label for="floatingNombre">Nombre</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos">
+        <label for="floatingApellidos">Apellidos</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="edad" placeholder="Edad">
+        <label for="floatingEdad">Edad</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" formControlName="telefono" placeholder="Telefono">
+        <label for="floatingTelefono">Telefono</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="direccion" placeholder="Direccion">
+        <label for="floatingDireccion">Direccion</label>
       </div>
       <div class="d-grid gap-2 mt-2 mb-3">
         <button  type="submit" class="btn btn-primary btn-lg">Ingresar</button>
     </div>
 
     </form>
-  </form>
+
 </div>
