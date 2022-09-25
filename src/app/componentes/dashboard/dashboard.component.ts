@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { DataUserService } from 'src/app/service/data-user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+datuser:any;
+usuarios:any;
+  constructor(private afAuth: AngularFireAuth,  private router: Router,private userService:DataUserService) { }
 
   ngOnInit(): void {
+    this.afAuth.currentUser.then(user => {
+      if(user &&user.emailVerified){
+        this.datuser=user;
+      }else{
+        this.router.navigate(['/login']);
+      }
+    })
+    this.getAlluser();
   }
 
+  logOut(){
+    this.afAuth.signOut().then(()=> this.router.navigate(['/login']))
+  }
+   getAlluser(){
+    this.userService.getUsuarios().subscribe(resp =>{
+      console.log("usuarios",resp);
+      this.usuarios=resp
+
+
+    })
+   }
 }

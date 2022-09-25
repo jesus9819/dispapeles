@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule} from '@angular/fire/compat'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HttpClientModule } from '@angular/common/http';
 //componentes
 import { LoginComponent } from './componentes/login/login.component';
 import { RegisterComponent } from './componentes/register/register.component';
@@ -14,6 +15,7 @@ import { RecuperarPassComponent } from './componentes/recuperar-pass/recuperar-p
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,16 @@ import { environment } from 'src/environments/environment';
     VerifyUserComponent,
     SpinnerComponent,
     RecuperarPassComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    SweetAlert2Module
+    SweetAlert2Module,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  url:'https://632c95941aabd837399f4600.mockapi.io',
   firebaseConfig: {
     apiKey: "AIzaSyCw7wyfFWikvIhT0UMvsviOTfoXaNXQMO4",
     authDomain: "dispapeles-6864d.firebaseapp.com",

@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <h2> Lista de Usuarios</h2>
+  <div class="table-responsive">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">TipoId</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of usuarios">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.tipoId}}</td>
+        <td>{{item.identificacion}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellidos}}</td>
+        <td>{{item.edad}}</td>
+        <td>{{item.direccion}}</td>
+        <td>{{item.telefono}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
