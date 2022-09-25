@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule} from '@angular/fire/compat'
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 //componentes
 import { LoginComponent } from './componentes/login/login.component';
 import { RegisterComponent } from './componentes/register/register.component';
@@ -28,7 +29,8 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
