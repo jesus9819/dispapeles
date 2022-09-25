@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DataUserService } from 'src/app/service/data-user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,6 +33,22 @@ usuarios:any;
       console.log("usuarios",resp);
       this.usuarios=resp
 
+
+    })
+   }
+   deleteUsuario( id:number){
+    this.userService.deleteUsurarios(id).subscribe((resp) =>{
+      console.log(resp.data);
+      this.getAlluser();
+      if (resp == 200) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Inactivado',
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      }
 
     })
    }

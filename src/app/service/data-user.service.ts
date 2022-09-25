@@ -13,4 +13,7 @@ export class DataUserService {
   getUsuarios(){
   return this.http.get<any>(`${environment.url}/api/v1/person`);
   }
+  deleteUsurarios(id:number){
+    return this.http.delete<any>(`${environment.url}/api/v1/person/${id}`)
+  }
 }

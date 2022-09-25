@@ -16,6 +16,7 @@ import { DashboardComponent } from './componentes/dashboard/dashboard.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { NewUsuarioComponent } from './componentes/new-usuario/new-usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     SpinnerComponent,
     RecuperarPassComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewUsuarioComponent
   ],
   imports: [
     BrowserModule,

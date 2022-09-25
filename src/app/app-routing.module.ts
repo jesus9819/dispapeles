@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { NewUsuarioComponent } from './componentes/new-usuario/new-usuario.component';
 import { RecuperarPassComponent } from './componentes/recuperar-pass/recuperar-pass.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { VerifyUserComponent } from './componentes/verify-user/verify-user.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'verifyUser',component:VerifyUserComponent},
   {path: 'recuperarPass',component:RecuperarPassComponent},
   {path: 'dashboard',component:DashboardComponent},
+  {path: 'nuevo-usuario',component:NewUsuarioComponent},
   {path: '**', redirectTo:'login', pathMatch:'full'}
 ];
 
